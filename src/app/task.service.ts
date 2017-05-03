@@ -1,22 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import { Task } from './task';
+
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TaskService {
 
-  constructor() { }
+  private taskListUrl = 'http://localhost:9001/todoapp/api/task/list';
 
-  getTasks(): Task[] {
-    const task1 = new Task();
-    task1.taskId = 1;
-    task1.doneFlg = false;
-    task1.description = '1つ目のタスク';
+  constructor(private http: Http) { }
 
-    const task2 = new Task();
-    task2.taskId = 1;
-    task2.doneFlg = false;
-    task2.description = '2つ目のタスク';
-
-    return [task1, task2];
+  getTasks(): Promise<Task[]> {
+    return this.http.get(this.taskListUrl)
+      .toPromise()
+      .then(response => response.json() as Task[]);
   }
 }
