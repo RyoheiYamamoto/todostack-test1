@@ -7,7 +7,8 @@
   </div>
   <div>{{title}}</div>
   <ul class="todo-entries-entries">
-    <li *ngFor="let task of tasks">
+    <li *ngFor="let task of tasks"
+        (click)="gotoDetail(task)">
       <div class="todo-entry-description-">{{task.description}}</div>
     </li>
   </ul>

@@ -11,6 +11,8 @@ import { TaskService } from './task.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WorkComponent } from './work/work.component';
 import { SettingComponent } from './setting/setting.component';
+import { TaskDetailComponent } from './task-detail/task-detail.component';
+import { KeysPipe } from './keys.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { SettingComponent } from './setting/setting.component';
     PageNotFoundComponent,
     WorkComponent,
     SettingComponent,
+    TaskDetailComponent,
+    KeysPipe,
   ],
   imports: [
     BrowserModule,
