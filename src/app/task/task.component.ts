@@ -14,11 +14,17 @@ export class TaskComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   prepareTasks(): void {
-    // this.tasks = this.taskService.getTasks();
     this.taskService.getTasks().then(tasks => this.tasks = tasks);
   }
 
   ngOnInit(): void {
     this.prepareTasks();
+  }
+
+  add(description: string): void {
+    description = description.trim();
+    if (!description) { return; }
+    this.taskService.create(description)
+      .then(task => this.tasks.push(task));
   }
 }

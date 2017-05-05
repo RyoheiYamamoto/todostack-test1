@@ -1,4 +1,10 @@
 <div class="todo-entries">
+  <div>
+    <label>なにするの？</label> <input #taskDescription />
+    <button (click)="add(taskDescription.value); taskDescription.value=''">
+      追加
+    </button>
+  </div>
   <div>{{title}}</div>
   <ul class="todo-entries-entries">
     <li *ngFor="let task of tasks">
