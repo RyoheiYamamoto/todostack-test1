@@ -1,17 +1,31 @@
-<div id="wrapper">
-  <!-- Sidebar -->
-  <div id="sidebar-wrapper">
-    <nav class="sidebar-nav">
-      <a routerLink="/" routerLinkActive="active">Todo App</a>
-      <a routerLink="/tasks" routerLinkActive="active">Tasks</a>
-      <a routerLink="/works" routerLinkActive="active">Works</a>
-      <a routerLink="/settings" routerLinkActive="active">Settings</a>
-    </nav>
-  </div>
-  <!-- /#sidebar-wrapper -->
-  <!-- Page Content -->
-  <router-outlet></router-outlet>
-  <!-- Routed views go here -->
-  <!-- /#page-content-wrapper -->
-</div>
-<!-- /#wrapper -->
+<md-toolbar color="primary">
+  <button md-button (click)="sidenav.open()">
+    <i class="material-icons">menu</i>
+  </button>
+  <span>{{title}}</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+</md-toolbar>
+
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav">
+    <md-nav-list>
+      <md-list-item>
+        <i class="material-icons">work</i>
+        <a routerLink="/tasks" routerLinkActive="active">Tasks</a>
+      </md-list-item>
+      <md-list-item>
+        <i class="material-icons">timer</i>
+        <a routerLink="/works" routerLinkActive="active">Works</a>
+      </md-list-item>
+      <md-list-item>
+        <i class="material-icons">settings</i>
+        <a routerLink="/settings" routerLinkActive="active">Settings</a>
+      </md-list-item>
+    </md-nav-list>
+  </md-sidenav>
+
+  <main class="content-wrapper">
+    <router-outlet></router-outlet>
+  </main>
+</md-sidenav-container>

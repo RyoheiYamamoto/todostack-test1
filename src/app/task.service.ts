@@ -14,10 +14,11 @@ export class TaskService {
   private taskCreateUrl = '/api/task/create';
   private taskUpdateUrl = '/api/task/update';
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+  }
 
   getTasks(): Promise<Task[]> {
-    return this.http.get(this.taskListUrl)
+    return this.http.get('/api/task/list')
       .toPromise()
       .then(response => response.json() as Task[]);
   }

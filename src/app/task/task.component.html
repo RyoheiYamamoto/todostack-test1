@@ -1,15 +1,17 @@
-<div class="todo-entries">
-  <div>
-    <label>なにするの？</label> <input #taskDescription />
-    <button (click)="add(taskDescription.value); taskDescription.value=''">
-      追加
-    </button>
-  </div>
-  <div>{{title}}</div>
-  <ul class="todo-entries-entries">
-    <li *ngFor="let task of tasks"
-        (click)="gotoDetail(task)">
-      <div class="todo-entry-description-">{{task.description}}</div>
-    </li>
-  </ul>
+<div class="tasks-wrapper">
+  <md-input-container class="task-input">
+    <input mdInput #taskDescription placeholder="なにするの？"/>
+  </md-input-container>
+  <button md-raised-button (click)="add(taskDescription.value); taskDescription.value=''">
+    追加
+  </button>
+  <md-list class="todo-entries-entries">
+    <h3 md-subheader>{{title}}</h3>
+    <md-list-item *ngFor="let task of tasks"
+                  (click)="gotoDetail(task)"
+                  class="task-list-item">
+      <md-card class="task-card">{{task.description}}</md-card>
+    </md-list-item>
+  </md-list>
+  <router-outlet></router-outlet>
 </div>

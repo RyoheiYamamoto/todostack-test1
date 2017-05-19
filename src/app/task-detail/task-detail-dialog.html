@@ -1,0 +1,22 @@
+<h1 md-dialog-title class="mat-dialog-title">
+  <md-input-container class="task-input">
+    <input mdInput [(ngModel)]="task.description" placeholder="概要">
+  </md-input-container>
+</h1>
+<div *ngIf="task">
+  <div md-dialog-content class="mat-dialog-content">
+    <div class="task-detail-wrapper">
+      <div>
+        <md-select placeholder="進捗" [(ngModel)]="task.statusCode" name="statusCode">
+          <md-option *ngFor="let statusCode of statusCodeList"
+                     [value]="statusCode.code">
+            {{statusCode.alias}}
+          </md-option>
+        </md-select>
+      </div>
+    </div>
+  </div>
+  <div md-dialog-actions class="mat-dialog-actions">
+    <button md-button md-dialog-close>閉じる</button>
+  </div>
+</div>

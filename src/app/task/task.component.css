@@ -1,0 +1,13 @@
+.task-input-container {
+  width: inherit;
+}
+.task-input {
+  padding: 30px;
+  width: 70%;
+}
+.task-list-item {
+  margin-bottom: 10px;
+}
+.task-card {
+  width: 600px;
+}
