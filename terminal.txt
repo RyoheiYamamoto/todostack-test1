@@ -1,0 +1,4 @@
+> npm install -g @angular/cli
+> ng new sample-todo-app
+> cd sample-todo-app
+> ng serve
